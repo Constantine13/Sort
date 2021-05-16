@@ -1,6 +1,6 @@
 package mainPackage.window;
 
-import jdk.nashorn.internal.scripts.JO;
+//import jdk.nashorn.internal.scripts.JO;
 import mainPackage.businessLogics.SortMass;
 
 import javax.swing.*;
@@ -161,7 +161,7 @@ public class MyFrame extends JFrame {
             long timer = System.currentTimeMillis();
             if(ascending.isSelected()){
             SortMass.sort(sortedArray, comparatorAscending);
-            }else SortMass.sort(sortedArray, comparatorDescending);
+            }else SortMass.sortDescending(sortedArray, comparatorDescending);
             long resultTimer = System.currentTimeMillis() - timer;
             DefaultListModel<Integer> sortModel = new DefaultListModel<>();
             for (int n : sortedArray){

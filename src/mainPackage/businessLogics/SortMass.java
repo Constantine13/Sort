@@ -6,33 +6,65 @@ public class SortMass {
 
 
     public static void sort(int[] array, Comparator<Integer> comparator) {
-        for (int i = 0; i < array.length; i++) {    // i - номер текущего шага
-            int pos = i;
-            int min = array[i];
-            // цикл выбора наименьшего элемента
-            for (int j = i + 1; j < array.length; j++) {
-                if (comparator.compare(array[j], min) > 0) {
-                    pos = j;    // pos - индекс наименьшего элемента
-                    min = array[j];
-                }
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+        for (int element : array)
+        {
+            if (element < min)
+            {
+                min = element;
             }
-            array[pos] = array[i];
-            array[i] = min;    // меняем местами наименьший с array[i]
+            if (element > max)
+            {
+                max = element;
+            }
+        }
+        int[] buckets = new int[max - min + 1];
+        for (int element : array)
+        {
+            buckets[element - min]++;
+        }
+        int arrayIndex = 0;
+        for (int i = 0; i < buckets.length; i++)
+        {
+            for (int j = buckets[i]; j > 0; j--)
+            {
+                array[arrayIndex++] = i + min;
+            }
         }
     }
-    public static void sortDescending(int[] array){
-        for (int i = 0; i < array.length; i++) {    // i - номер текущего шага
-            int pos = i;
-            int max = array[i];
-            // цикл выбора наименьшего элемента
-            for (int j = i + 1; j < array.length; j++) {
-                if (array[j] > max) {
-                    pos = j;    // pos - индекс наименьшего элемента
-                    max = array[j];
-                }
+    public static void sortDescending(int[] array, Comparator<Integer> comparator){
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+        for (int element : array)
+        {
+            if (element < min)
+            {
+                min = element;
             }
-            array[pos] = array[i];
-            array[i] = max;    // меняем местами наименьший с array[i]
+            if (element > max)
+            {
+                max = element;
+            }
+        }
+        int[] buckets = new int[max - min + 1];
+        for (int element : array)
+        {
+            buckets[element - min]++;
+        }
+        int arrayIndex = 0;
+        for (int i = 0; i < buckets.length; i++)
+        {
+            for (int j = buckets[i]; j > 0; j--)
+            {
+                array[arrayIndex++] = i + min;
+            }
+        }
+
+        for (int i = 0; i < buckets.length / 2; i++) {
+          int temp = array[i];
+          array[i] = array[buckets.length - 1 - i];
+          array[buckets.length - 1 - i] = temp;
         }
     }
 }
