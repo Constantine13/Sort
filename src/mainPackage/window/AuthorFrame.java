@@ -41,7 +41,7 @@ public class AuthorFrame extends JPanel {
         buttonBack.addActionListener(e -> {
             frame.dispose();
         });
-        ImageIcon iconBack = new ImageIcon("src\\Main\\Images\\Back.png");
+        ImageIcon iconBack = new ImageIcon("src\\main\\Package\\Back.png");
         buttonBack.setIcon(iconBack);
 
         constraints.gridy = 0;
