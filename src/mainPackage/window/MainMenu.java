@@ -18,7 +18,7 @@ public class MainMenu extends JMenuBar {
 
     private JMenu help(){
         JMenu help = new JMenu("Меню");
-        JMenuItem author = new JMenuItem("об авторе");
+        JMenuItem author = new JMenuItem("Об авторе");
         help.add(author);
         JMenuItem program = new JMenuItem("О программе");
         help.add(program);

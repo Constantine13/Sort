@@ -124,14 +124,16 @@ public class MyFrame extends JFrame {
                     range = Integer.parseInt(average.getText());
                 }else
                     range = Integer.parseInt(max.getText());
-                if(size > 100000){
+                if(size > 100000)
+                {
                     JOptionPane.showMessageDialog(this ,"Введите число в пределе от 0 до 100000");
                     return;
                 }
-                    if(size == 0){
-                        JOptionPane.showMessageDialog(this, "Поле не должно быть пустым");
-                        return;
-                    }
+                if(size == 0)
+                {
+                    JOptionPane.showMessageDialog(this, "Поле не должно быть пустым");
+                    return;
+                }
                 for(int i = 0; i < array.length; i++){
                     array[i] = (int) (Math.random() * range);
                 }
