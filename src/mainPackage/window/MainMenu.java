@@ -22,13 +22,17 @@ public class MainMenu extends JMenuBar {
         JMenu help = new JMenu("Меню");
         JMenuItem author = new JMenuItem("Об авторе");
         help.add(author);
+        author.addActionListener(e -> { new AboutAuthor("Об авторе").setVisible(true);});
         JMenuItem program = new JMenuItem("О программе");
         help.add(program);
+        program.addActionListener(e -> { new AboutProgram("О программе").setVisible(true);});
         JMenuItem exit = new JMenuItem("Выход");
         exit.addActionListener(new exitApp());
         help.add(exit);
         return help;
     }
+
+
     private JMenu save(){
          save = new JMenu("Сохранить файл");
         return save;
