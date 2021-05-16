@@ -1,6 +1,8 @@
 package mainPackage.window;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -22,11 +24,23 @@ public class MainMenu extends JMenuBar {
         help.add(author);
         JMenuItem program = new JMenuItem("О программе");
         help.add(program);
+        JMenuItem exit = new JMenuItem("Выход");
+        exit.addActionListener(new exitApp());
+        help.add(exit);
         return help;
     }
     private JMenu save(){
          save = new JMenu("Сохранить файл");
         return save;
+    }
+
+
+    static class exitApp implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+            System.exit(0);
+        }
     }
 
 //    private JMenu createSaveButton(){
